@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Authentication from './Components/auth';
+import Movies from './Components/movies';
+
+
 
 function App() {
+  const [updatedtitle,setUpdatedTitle] = useState("");
+const handleChange=(e)=>{
+  setUpdatedTitle(e.target.value);
+}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Authentication/>
+      <Movies updatedtitle={updatedtitle} handleChange={handleChange}/>
     </div>
   );
 }
